@@ -9,7 +9,7 @@ const Dashboad = () => {
   const [text, setText] = useState("");
   const [pastEvents, setPastEvents] = useState(true);
   const [limit, setLimit] = useState(10);
-
+  console.log(Data)
   const FetchData = async (data) => {
     console.log(data);
     let url = `https://manage-api.konfhub.com/hosted-events?limit=10&past_events=${pastEvents}`;
@@ -22,9 +22,9 @@ const Dashboad = () => {
   };
 
   const handleLoadMore = (e) => {
-    setLimit(limit + 10);
+    setLimit(limit + 12);
     let data = {
-      limit: limit + 10,
+      limit: limit + 12,
       search_query: text,
     };
     FetchData(data);
@@ -99,7 +99,7 @@ const Dashboad = () => {
                           style={{ height: "15px" }}
                         ></img>
                         <small>
-                          {data.is_free ? "Free" : "Not Free"} |{" "}
+                          {data.is_free ? "Free" : "Paid"} |{" "}
                           {data.is_live ? "Online" : "Offline"}
                         </small>
                       </div>
